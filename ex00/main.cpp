@@ -13,27 +13,29 @@
 #include "ClapTrap.hpp"
 
 int main(void){
-	std::string target;
-	unsigned int numA;
-	unsigned int numB;
-
+	int takeDamage = 7;
+	int Heal = 4;
+	std::string target = "mirror image";
 	ClapTrap default_bot;
 	ClapTrap bot("Hero");
-
-	std::cout << "what is the aponents name, the choice is yours!" << std::endl;
-	std::cin >> target;
-	std::cout << "how strong is the aponent? numbers only" << std::endl;
-	std::cin >> numA;
-	std::cout << "and last assigne a healing factor to our hero, numbers only" << std::endl;
-	std::cin >> numB;
+	ClapTrap copy_bot(bot);
 	
-	while(bot.checkHealth() != 0 && bot.checkEnergy() != 0)
-	{
-		
-
-
-
-		bot.takeDamage(numA);
-	}
 	
+	std::cout << std::endl << "Tests for ClapTrap functions" << std::endl << std::endl;
+	std::cout << "Hero has " << bot.getHitPoints() << " hit points and " << bot.getEnergyPoints() << " energy points left" << std::endl;
+	bot.attack(target);
+	bot.takeDamage(takeDamage);
+	bot.beRepaired(Heal);
+	std::cout << "Hero has " << bot.getHitPoints() << " hit points and " << bot.getEnergyPoints() << " energy points left" << std::endl;
+	std::cout << std::endl << "Tests for Death" << std::endl << std::endl;
+	bot.takeDamage(takeDamage);
+	bot.attack(target);
+	bot.beRepaired(Heal);
+	bot.takeDamage(takeDamage);
+	std::cout << "Hero has " << bot.getHitPoints() << " hit points and " << bot.getEnergyPoints() << " energy points left" << std::endl;
+	std::cout << std::endl << "Tests for Copy and Assignment" << std::endl << std::endl;
+	std::cout << "Hero.copy has " << copy_bot.getHitPoints() << " hit points and " << copy_bot.getEnergyPoints() << " energy points left" << std::endl;
+	copy_bot = bot;
+	std::cout << "Hero.copy has " << copy_bot.getHitPoints() << " hit points and " << copy_bot.getEnergyPoints() << " energy points left" << std::endl << std::endl;
+	return (0);
 }

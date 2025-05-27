@@ -1,6 +1,6 @@
 C++ = c++
 C++_FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-INFILES = 	main.cpp ClapTrap.cpp
+INFILES = 	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJFILES = $(INFILES:.cpp=.o)
 

@@ -17,7 +17,7 @@
 # include <string>
 
 class ClapTrap{
-	private:
+	protected:
 		std::string _name;
 		int			_healthPoints;
 		int			_energyPoints;
@@ -31,7 +31,7 @@ class ClapTrap{
 		//Copy assignment operator
 		ClapTrap &operator=(const ClapTrap &other);
 		//Destructor
-		~ClapTrap();
+		virtual ~ClapTrap();
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
